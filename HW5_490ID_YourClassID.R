@@ -1,0 +1,134 @@
+# HW 5 - Due Tuesday October 30, 2017 in moodle and hardcopy in class. 
+# Upload R file to Moodle with name: HW5_490IDS_YourClassID.R
+# Do Not remove any of the comments. These are marked by #
+
+# Please ensure that no identifying information (other than yur class ID) 
+# is on your paper copy, including your name
+
+#########################Part 1#############################
+
+#Q1.)
+
+#For this problem we will start with a simulation in order to find out
+#how large size needs to be for the binomial distribution to be 
+#approximated by the normal distribution. 
+
+
+#(a)(4pts) Let's let p=0.45, use the rbinom function to generate 
+# 500 observations(n = 500)
+#Use 10, 30, and 50 for number of trials(size = 10,30,50). 
+#Add normal curves to all of the plots. 
+#Display the three histograms as well as your code below. 
+#Also comment something on the shape of the histogram for each plot
+n = 500
+p = .45
+size = c(10, 30, 50)
+rb10 = rbinom(n = n, prob = p, size = size[1] )
+hist(rb10, prob = TRUE)
+curve(dnorm(x, mean = size[1]*p, sd = sqrt(size[1]*p*(1-p))), add = TRUE)
+for (i in size){
+  rb = rbinom(n = n, prob = p, size = i)
+  hist(rb, prob = TRUE)
+  curve(dnorm(x, mean = i*p, sd = sqrt(size[i]*p*(1-p))), add = TRUE)
+}
+#(b)(3pts.) Now use the techniques described in class to improve graphs. 
+# Explain each step you choose including why you are making the change. You
+# might consider creating density plots, changing color, axes, 
+# labeling, legend, and others for example.
+
+
+#Q2.) (2pts.)
+#Why do you think the Data Life Cycle is crucial to understanding the opportunities
+#and challenges of making the most of digital data? Give two examples.
+
+
+#########################Part 2#############################
+
+#Q3.)Install and Load the library ElemStatLearn
+# Load the data prostate into R.
+# install.packages("ElemStatLearn")
+library(ElemStatLearn)
+data(prostate)
+
+#(a) (1 pt) Print out the structure of the dataset using str()
+str(prostate)
+#(b)(1 pt) What are the names of the features in the dataset?
+names(prostate)
+
+# (c). (2 pts.)
+# The first eight variables are the our predictors. Subset the dataset with
+# these eight variables and name it X.
+x =  prostate[,1:8]
+
+# (d) (2 pts)
+# Name the correlation matrix for X CorX and print it out.
+CorX = cor(x)
+
+# (e) (2 pts)
+# Find out the pair of variables with largest correlation 
+
+
+# (f) (2 pts)
+# Use corrplot function from package corrplot to make a correlation plot 
+# install.packages("corrplot")
+
+library(corrplot)
+
+corrplot(CorX)
+# (f) (3 pts.)
+# Create a new variable called age_group: 
+# if 40 < age < 50, set it to fortys, if 50 < age < 60, set it to fiftys
+# if 60 < age < 70, set it to sixtys, if 70 < age < 80, set it to seventys.
+# Make a barplot for this variable. 
+age = prostate$age %/% 10 * 10
+age_group1 =  sapply(age, function(x){
+  if (x= 40){
+    'fortys'}
+  else if (x = 50){
+    'fiftys'}
+  else if (x =60){
+    'sixtys'}
+  else {'seventys'}
+})
+age_group2 = ifelse(age == 40, 'fortys', ifelse(age == 50, 'fiftys', ifelse(age == 60, 'sixtys', 'seventys')))
+all.equal(age_group1,age_group2)
+barplot(table(age_group1))
+#(g) Bonus (1 pt) Can you try to make the same plot using ggplot?
+library(ggplot2)
+ggplot(dat = data.frame(table(age_group1)) )
+#########################Part 3#############################
+#You can use either ggplot or normal plot method for plotting.
+
+#4.)
+
+#Load the dataset "titanic.csv" you downloaded from moodle, omit the NA using
+#na.omit(). There are 714 observations after removing the missing values.
+mydata = na.omit(read.csv('titanic.csv'))
+#a.)(1 pt) First print out the str() of the dataset and think about
+#          which variable need to be converted to categorical.
+str(mydata)
+mydata$Pclass = as.factor(mydata$Pclass)
+mydata$Survived = as.factor(mydata$Survived)
+str(mydata)
+#b.(2pt) If Survived = 0, change it to "No", else change it to "Yes".
+#        Replace the "Yes/No" variable to original "Survived" Variable
+#       Also convert Pclass to factor.
+mydata$Survived = ifelse(mydata$Survived == 0, 'No', 'Yes')
+mydata$Survived = as.factor(mydata$Survived)
+
+#c.)(3 pt) Make a histogram for the Age variable and fill the 
+#         histogram by Survived Variable.
+#The plot is similar to 
+#http://ggplot2.tidyverse.org/reference/geom_freqpoly-9.png
+ggplot(data = mydata, aes(Age, fill = Survived)) + geom_histogram(binwidth = 3)
+
+
+#d.) (4 pts.)
+#Make a mosaic plot with Sex, Pclass, Survived variables.
+#Google is your friend if you find yourself stuck. 
+
+w =  xtabs(~Sex +Pclass+Survived, mydata)
+mosaicplot(w)
+# ggmosaic not installed yet :)
+#library(ggmosaic)
+#ggplot(mydata) +geom_mosaic(aes(x = product(Sex, Pclass,Survived), fill = Pclass))
