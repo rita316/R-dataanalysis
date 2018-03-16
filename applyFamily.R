@@ -1,10 +1,5 @@
-# HW 3 - Due Monday  Oct 2, 2017. Upload R file to Moodle with name: HW3_490IDS_YOURCLASSID.R
-# Do Not remove any of the comments. These are marked by #
-# The .R file will contain your code and answers to questions.
 
-#ClassID:
-
-# Main topic: Using the "apply" family of functions
+# Using the "apply" family of functions
 
 #Q1 (5 pts)
 # Given a function below,
