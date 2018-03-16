@@ -1,9 +1,4 @@
-# HW 6 - Due Monday Nov 6, 2017 in moodle and hardcopy in class. 
-# Upload your R file to Moodle with name: HW6_490IDS_YourClassID.R
-# Do Not remove any of the comments. These are marked by #
-
-# Please ensure that no identifying information (other than your class ID) is on your paper copy
-
+# Simulation & Regex
 ################################### Part 1: Simulation in R (15 pts) ##############################################
 
 ## We will use the simulation techniques (Monte Carlo) introduced in class to generate confidence intervals for our estimates of distribution mean
