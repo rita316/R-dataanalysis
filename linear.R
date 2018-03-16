@@ -1,14 +1,6 @@
-# HW 4 Due Monday Oct 2, 2017. 
-# Upload R file to Moodle with name: HW4_490ID_YourClassID.R
 
-# Your classID:
-
-# Notice we are using the new system with your unique class ID. You should have received an email with
-# your unique class ID. Please make sure that ID is the only information on your hw that identifies you. 
-
-# Do not remove any of the comments. These are marked by #
-
-
+## Linear Regression & the Bootstrap
+## dataset - cats
 
 ################## Part 1: Linear Regression Concepts #######################
 
