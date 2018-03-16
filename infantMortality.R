@@ -1,13 +1,5 @@
-# HW 7 - Due Monday Nov 13, 2017 in moodle and hardcopy in class. 
-# Upload R file to Moodle with filename: HW7_490IDS_YOURCLASSID.R
-# Do not remove any of the comments. These are marked by #
 
-### For this assignment will extract useful information from XML and 
-### use Google Earth for data visualization. 
-### The hw7.rda file containing the contry geographic coordinate is uploaded to Moodle.
-### Look at detail instructions for the assignment in hw7_Intro.pdf.
-
-
+### Extract infant mortality from a XML file and use Google Earth for data visualization. 
 
 ### Part 1.  Create the data frame from XML file
 
