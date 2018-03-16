@@ -1,10 +1,3 @@
-# HW 2 Due Monday Sept 25, 2017. Upload R file to Moodle with name: HW1_490ID_CLASSID.R
-# You can upload plots to Moodle in separate files and refer to them in your R file, or use an 
-# R notebook http://rmarkdown.rstudio.com/r_notebooks.html
-
-# Do not remove any of the comments. These are marked by #
-
-### Class ID:
 
 # In this assignment you will practice how to manipulate a dataframe, 
 # such as taking subsets and creating new variables, with the goal of creating a plot.
