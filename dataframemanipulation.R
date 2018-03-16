@@ -1,11 +1,8 @@
 
-# In this assignment you will practice how to manipulate a dataframe, 
-# such as taking subsets and creating new variables, with the goal of creating a plot.
+# Manipulate a dataframe -- taking subsets and creating new variables and plots.
 
-# You will work with the mtcars data in R library and a dataset called SFHousing. 
+# dataset - SFHousing. 
 
-# Before beginning with the housing data however, you will do some warm up 
-# exercises with the small mtcars data set.
 
 # PART 1. mtcars Data
 # Q1.(2 pts.)
