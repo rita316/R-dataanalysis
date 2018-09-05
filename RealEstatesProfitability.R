@@ -1,5 +1,5 @@
 ## IS590 Methods for Data Science
-## To Build or Not To Build
+## Real Estates Profitability
 ## An Analysis of the Residential Building Dataset with Support Vector Machine
 ## 4/30/2018
 
